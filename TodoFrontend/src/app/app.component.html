@@ -1,2 +1,114 @@
-<app-todo-list></app-todo-list>
+<nav
+  class="navbar navbar-expand-lg navbar-dark fw-bold"
+  style="background-color: #51bbe9"
+>
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      To
+      <img
+        src="../../../assets/img/2x/outline_done_all_black_18dp.png"
+        class="icon img-fluid"
+        style="background-color: #fff; height: 30px; border-radius: 50px"
+      />
+      Do
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" style="color: white" href="/">| Inicio </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            style="color: white"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            | Tareas
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="">Todas Tareas</a>
+            <a class="dropdown-item" href="">Agregar Tarea</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="">Tareas Finalizadas</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            style="color: white"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            | Perfil
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="">Cerrar Sesión</a>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- <div
+  class="m-3 row justify-content-center align-items-center"
+  style="height: 80px; background-color: #51bbe9; border-radius: 10px;"
+>
+  <div class="input-group m-3">
+    <div class="input-group-text">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        aria-label="Checkbox for following text input"
+      />
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      aria-label="Text input with checkbox"
+    />
+    <button
+      class="btn btn-outline-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Dropdown
+    </button>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="">Todas Tareas</a>
+      <a class="dropdown-item" href="">Agregar Tarea</a>
+      <div class="dropdown-divider"></div>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="">Tareas Finalizadas</a>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <app-todo-list></app-todo-list>
+</div>
+
 <router-outlet></router-outlet>

@@ -6,6 +6,17 @@ const usuarioRouter = require('./routes/usuario.routes');
 const listaRouter = require('./routes/lista.routes');
 require('./config/database');
 
+//Verifica si funciona el request de nodemailer
+const nodemailer = require("./config/nodemailer");
+nodemailer.verify((err, success) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log("La conexion a nodemailer fue exitosa");
+  }
+});
+
+
 const app = express();
 
 app.use(bodyParser.json());

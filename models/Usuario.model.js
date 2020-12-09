@@ -16,14 +16,7 @@ var userSchema = new mongoose.Schema({
         type:String,
         required:false,
     },
-    verificado:{
-        type:String,
-        required:false,
-    },
-    tokenFecha:{
-        type:String,
-        required:false,
-    }
+ 
 
 });
 

@@ -1,6 +1,8 @@
 const Usuario = require("../models/Usuario.model");
 const jwt = require("jsonwebtoken");
 const secret = "jwt_y*)Jy*)JL,WnL,Wny*)JL,Wn"; //contraseña
+const nodemailer = require('../config/nodemailer');
+const crypto = require('crypto');
 
 exports.register = async (req, res) => {
   const { email, password } = req.body;
@@ -67,3 +69,63 @@ exports.login = async (req, res) => {
     res.json(error);
   }
 };
+
+
+exports.postReestablecer = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    //no busca la contraseña
+    const usuario = await Usuario.findOne({ email },{password:0});
+
+    if (!usuario) {
+      res
+        .status(400)
+        .json({ mensaje: "No se encontro una cuenta con este correo electronico" });
+    } else {
+      const nuevoUsuario = await Usuario.findByIdAndUpdate(usuario.id, {token: crypto.randomBytes(20).toString("hex")
+    });
+      const Url = `http://${req.headers.host}/api/Usuario/reestablecer/${nuevoUsuario.token}`;
+
+      const mail = {
+        from: "ma_valdeza@unicah.edu",
+        to: usuario.email,
+        subject: "Reestablecer tu cuenta <NOREPLY>",
+        text:
+          "Hola,\n\n" +
+          "Por favor, para reestablecer su cuenta haga click en este link:\n\n" +
+          Url +
+          ".\n",
+        html:
+          "Hola,<br><br>" +
+          "Por favor, para reestablecer su cuenta haga click en este link:<br><br>" +
+          '<a href="' +
+          Url +
+          '" target="_blank">Activar Usuario</a>.<br>',
+      };
+      await nodemailer.sendMail(mail);
+      res.status(200).json({'Mensaje':'Su correo fue enviado exitosamente'});
+    }
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+exports.verificarToken = async (req, res, next) => {
+try {
+  const { token } = req.params;
+    //no busca la contraseña
+    const usuario = await Usuario.findOne({ token },{password:0});
+
+    if (!usuario) {
+      res
+        .status(400)
+        .json({ mensaje: "No se encontro un token" });
+    } else {
+      
+          //res.redirect('');  
+    }
+} catch (error) {
+  res.json(error);
+}
+  
+  }

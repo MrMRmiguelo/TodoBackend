@@ -11,5 +11,7 @@ router.get('/', (req, res) => {
     res.send('okUsuario');
 });
 
+router.post('/reestablecer', usuario.postReestablecer);
+
 
 module.exports = router;

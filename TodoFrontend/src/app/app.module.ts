@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
 import { TodoService } from './services/todo.service';
 import { LoginComponent } from './components/login/login.component';
+import { TodoAddComponent } from './components/todo-add/todo-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    LoginComponent
+    LoginComponent,
+    TodoAddComponent
   ],
   imports: [
     BrowserModule,

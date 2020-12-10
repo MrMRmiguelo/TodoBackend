@@ -24,7 +24,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
         <li class="nav-item">
           <a
             class="nav-link active"
@@ -47,11 +47,11 @@
             | Tareas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Todas Tareas</a></li>
-            <li><a class="dropdown-item" href="#">Agregar Tarea</a></li>
+            <li><a class="dropdown-item" href="/">Todas Tareas</a></li>
+            <li><a class="dropdown-item" href="/add">Agregar Tarea</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item" href="/login">Tareas Finalizadas</a>
+              <a class="dropdown-item" href="/ended">Tareas Finalizadas</a>
             </li>
           </ul>
         </li>
@@ -70,26 +70,25 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/login">Perfil</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+            <li><a class="dropdown-item" href="/logout">Cerrar Sesion</a></li>
           </ul>
         </li>
+        <li>
+          <a
+            class="nav-link disabled"
+            style="color: rgb(61, 61, 61);"
+            tabindex="-1"
+            aria-disabled="true"
+            >Hola User</a
+          >
+        </li>
       </ul>
-      <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
 
-  <div class="container ">
-    <app-todo-list></app-todo-list>
-  </div>
+<div class="container">
+  <app-todo-list></app-todo-list>
+</div>
 
-  <router-outlet></router-outlet>
-
+<router-outlet></router-outlet>

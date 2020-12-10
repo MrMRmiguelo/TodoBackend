@@ -1,114 +1,95 @@
 <nav
-  class="navbar navbar-expand-lg navbar-dark fw-bold"
+  class="navbar navbar-expand-lg navbar-dark"
   style="background-color: #51bbe9"
 >
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      To
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"
+      >To
       <img
         src="../../../assets/img/2x/outline_done_all_black_18dp.png"
         class="icon img-fluid"
         style="background-color: #fff; height: 30px; border-radius: 50px"
       />
-      Do
-    </a>
+      Do</a
+    >
     <button
       class="navbar-toggler"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" style="color: white" href="/">| Inicio </a>
+          <a
+            class="nav-link active"
+            aria-current="page"
+            style="color: white"
+            href="#"
+            >| Inicio</a
+          >
         </li>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            style="color: white"
             href="#"
             id="navbarDropdown"
             role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
+            data-bs-toggle="dropdown"
             aria-expanded="false"
+            style="color: white"
           >
             | Tareas
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="">Todas Tareas</a>
-            <a class="dropdown-item" href="">Agregar Tarea</a>
-            <div class="dropdown-divider"></div>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="">Tareas Finalizadas</a>
-          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Todas Tareas</a></li>
+            <li><a class="dropdown-item" href="#">Agregar Tarea</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="/login">Tareas Finalizadas</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            style="color: white"
             href="#"
             id="navbarDropdown"
             role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
+            data-bs-toggle="dropdown"
             aria-expanded="false"
+            style="color: white"
           >
             | Perfil
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="">Cerrar Sesión</a>
-            <div class="dropdown-divider"></div>
-          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/login">Perfil</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+          </ul>
         </li>
       </ul>
+      <form class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>
-<!-- <div
-  class="m-3 row justify-content-center align-items-center"
-  style="height: 80px; background-color: #51bbe9; border-radius: 10px;"
->
-  <div class="input-group m-3">
-    <div class="input-group-text">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        value=""
-        aria-label="Checkbox for following text input"
-      />
-    </div>
-    <input
-      type="text"
-      class="form-control"
-      aria-label="Text input with checkbox"
-    />
-    <button
-      class="btn btn-outline-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Dropdown
-    </button>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="">Todas Tareas</a>
-      <a class="dropdown-item" href="">Agregar Tarea</a>
-      <div class="dropdown-divider"></div>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="">Tareas Finalizadas</a>
-    </div>
+
+  <div class="container ">
+    <app-todo-list></app-todo-list>
   </div>
-</div> -->
 
-<div class="container">
-  <app-todo-list></app-todo-list>
-</div>
+  <router-outlet></router-outlet>
 
-<router-outlet></router-outlet>

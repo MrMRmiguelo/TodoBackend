@@ -13,5 +13,7 @@ router.get('/', (req, res) => {
 
 router.post('/reestablecer', usuario.postReestablecer);
 
+router.post('/reestablecer/:token', usuario.reestablecercontrasena);
+
 
 module.exports = router;

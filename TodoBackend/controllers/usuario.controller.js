@@ -73,7 +73,7 @@ exports.login = async (req, res) => {
 
 exports.postReestablecer = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email } = req.body;
     //no busca la contraseña
     const usuario = await Usuario.findOne({ email },{password:0});
 
@@ -84,7 +84,7 @@ exports.postReestablecer = async (req, res) => {
     } else {
       const nuevoUsuario = await Usuario.findByIdAndUpdate(usuario.id, {token: crypto.randomBytes(20).toString("hex")
     });
-      const Url = `http://${req.headers.host}/api/Usuario/reestablecer/${nuevoUsuario.token}`;
+      const Url = `http://localhost:4200/usuario/reestablecer/${nuevoUsuario.token}`;
 
       const mail = {
         from: "ma_valdeza@unicah.edu",
@@ -110,22 +110,24 @@ exports.postReestablecer = async (req, res) => {
   }
 };
 
-exports.verificarToken = async (req, res, next) => {
-try {
-  const { token } = req.params;
+
+//accion de cambiar contraseña
+exports.reestablecercontrasena = async (req, res, next) => {
+  try {
+    const { token } = req.params;
+    const { password } = req.body;
     //no busca la contraseña
-    const usuario = await Usuario.findOne({ token },{password:0});
+    const usuario = await Usuario.findOne({ token }, { password: 0 });
 
     if (!usuario) {
-      res
-        .status(400)
-        .json({ mensaje: "No se encontro un token" });
+      res.status(400).json({ mensaje: "No se encontro un token" });
     } else {
+      await Usuario.findByIdAndUpdate( usuario.id , { password: await Usuario.encriptarContraseña(password), token: null });
       
-          //res.redirect('');  
+      res.status(200).json({'Mensaje':'Se ha reestablecido la contraseña exitosamente'});
+      
     }
-} catch (error) {
-  res.json(error);
-}
-  
+  } catch (error) {
+    res.json(error);
   }
+};

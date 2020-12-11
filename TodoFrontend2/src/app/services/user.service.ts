@@ -22,6 +22,8 @@ export class UserService {
   }
 
   loggedUser(): boolean {
+    console.log(!!localStorage.getItem('userToken'));
+    
     return !!localStorage.getItem('userToken');
   }
   loggedOut(): void {
@@ -30,7 +32,6 @@ export class UserService {
   }
 
   getToken(): string {
-    console.log('token');
     return localStorage.getItem('userToken');
   }
 }

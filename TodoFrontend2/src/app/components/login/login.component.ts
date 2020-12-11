@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertService } from '@full-fledged/alerts';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,46 +12,40 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  public errorAlert:string;
+
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
   ) {
     this.createForm();
   }
-  
+
   ngOnInit(): void {}
 
-  private createForm(){
+  private createForm() {
     this.loginForm = this.formBuilder.group({
-      email:['',[Validators.required,Validators.email]],
-      password:['',Validators.required],
-    })
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
   }
-  Submit(form:Usuario){
-     
+  Submit(form: Usuario) {
     const usuario: Usuario = {
       email: form.email,
       password: form.password,
     };
     this.userService.login(usuario).subscribe(
       (res) => {
-        localStorage.setItem('usertoken', res.token);
-        // this.toastr.success(`Bienvenido`, 'Mensaje');
+        localStorage.setItem('userToken', res.token);
+        this.alertService.success(`Bienvenido`);
         this.router.navigate(['/todo']);
       },
       (err) => {
-        this.errorAlert=err.error.mensaje;
-        
-        // const message = err.error.message;
         console.log(err);
-        
-        // this.toastr.error(`${message}`, 'Alerta');
+
+        this.alertService.danger(err.error.mensaje);
       }
     );
-
   }
-  
-
 }

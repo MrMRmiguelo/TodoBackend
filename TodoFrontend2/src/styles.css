@@ -1,1 +1,118 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif, "Nerko One", cursive;
+}
+.blur {
+    margin: 0;
+    padding: 0;
+}
+
+.blur:before {
+    content: '';
+    z-index: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/assets/img/fondo.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-filter: blur(6px);
+    -moz-filter: blur(6px);
+    -o-filter: blur(6px);
+    -ms-filter: blur(6px);
+    filter: blur(6px);
+}
+.contact-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 500px;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 25px;
+}
+
+.avatar {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  top: calc(-80px/2);
+  left: calc(50% - 40px);
+  padding: 2px;
+}
+
+.contact-form h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contact-form p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.contact-form input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.contact-form input[type="submit"] {
+  height: 30px;
+  color: #fff;
+  font-size: 15px;
+  background: #51bbe9;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  
+}
+
+.contact-form a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+.contact-form a:hover{
+  color: #51bbe9;
+}
+
+input[type="checkbox"] {
+  width: 20%;
+}
+
+.card {
+  margin: 0 auto; 
+  float: none;
+  margin-bottom: 10px; 
+}
+

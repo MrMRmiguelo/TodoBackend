@@ -9,11 +9,31 @@ import { GuardGuard } from './guards/guard.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
+// Import BrowserAnimationsModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Import your library
+import { AlertModule } from '@full-fledged/alerts';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, LoginComponent, RegisterComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,ReactiveFormsModule,FormsModule],
+  declarations: [
+    AppComponent,
+    TodoComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavbarComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    // Specify your library as an import (set timeout to -1 for unlimited timeout, the message can only be closed by the user clicking on it)
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right'}),
+  ],
   providers: [
     GuardGuard,
     {

@@ -1,1 +1,22 @@
-<p>register works!</p>
+<form novalidate [formGroup]="registerForm" (ngSubmit)="Submit(registerForm.value)">
+    <input type="email" formControlName="email" />
+  
+    <span *ngIf="registerForm.get('email').hasError('email')"
+      >Correo electrónico invalido</span
+    >
+  
+    <span *ngIf="registerForm.get('email').hasError('required') && (registerForm.get('email').touched || registerForm.get('email').dirty)"
+      >Correo electrónico requerido</span
+    >
+  
+    <input type="password" formControlName="password" />
+  
+    <span *ngIf="registerForm.get('password').hasError('required')  && (registerForm.get('password').touched || registerForm.get('password').dirty)"
+      >Contraseña requerida</span
+    >
+  
+    <button [disabled]="registerForm.invalid">REGISTER</button>
+    {{ registerForm.errors | json }}
+  </form>
+  
+  

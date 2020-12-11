@@ -8,10 +8,11 @@ import { LoginComponent } from './components/login/login.component';
 import { GuardGuard } from './guards/guard.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, LoginComponent],
+  declarations: [AppComponent, TodoComponent, LoginComponent, RegisterComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,ReactiveFormsModule,FormsModule],
   providers: [
     GuardGuard,

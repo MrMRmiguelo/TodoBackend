@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const usuarioRouter = require('./routes/usuario.routes');
 const listaRouter = require('./routes/lista.routes');
+const cors = require('cors');
 require('./config/database');
 
 //Verifica si funciona el request de nodemailer
@@ -17,13 +18,21 @@ nodemailer.verify((err, success) => {
 });
 
 
+
+
 const app = express();
+const corsOptions = {
+  // origin: "http://localhost:4200",
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use('/api/usuario',usuarioRouter);
 app.use('/api/lista',listaRouter);
+
 
 
 

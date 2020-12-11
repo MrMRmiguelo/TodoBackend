@@ -5,12 +5,13 @@ import { Usuario } from 'src/app/interfaces/usuario';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+export class RegisterComponent implements OnInit {
+
+  registerForm: FormGroup;
   public errorAlert:string;
   constructor(
     private formBuilder: FormBuilder,
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   private createForm(){
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',Validators.required],
     })
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
       email: form.email,
       password: form.password,
     };
-    this.userService.login(usuario).subscribe(
+    this.userService.register(usuario).subscribe(
       (res) => {
         localStorage.setItem('usertoken', res.token);
         // this.toastr.success(`Bienvenido`, 'Mensaje');
@@ -51,6 +52,5 @@ export class LoginComponent implements OnInit {
     );
 
   }
-  
 
 }

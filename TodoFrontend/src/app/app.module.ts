@@ -10,13 +10,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { TodoService } from './services/todo.service';
 import { LoginComponent } from './components/login/login.component';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     LoginComponent,
-    TodoAddComponent
+    TodoAddComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

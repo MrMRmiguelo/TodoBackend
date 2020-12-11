@@ -75,15 +75,18 @@ exports.postReestablecer = async (req, res) => {
   try {
     const { email } = req.body;
     //no busca la contraseña
-    const usuario = await Usuario.findOne({ email },{password:0});
+    const usuario = await Usuario.findOne({ email }, { password: 0 });
 
     if (!usuario) {
       res
         .status(400)
-        .json({ mensaje: "No se encontro una cuenta con este correo electronico" });
+        .json({
+          mensaje: "No se encontro una cuenta con este correo electronico",
+        });
     } else {
-      const nuevoUsuario = await Usuario.findByIdAndUpdate(usuario.id, {token: crypto.randomBytes(20).toString("hex")
-    });
+      const nuevoToken = await crypto.randomBytes(20).toString("hex");
+      const nuevoUsuario = await Usuario.findByIdAndUpdate(usuario.id, {
+        token: nuevoToken, });
       const Url = `http://localhost:4200/usuario/reestablecer/${nuevoUsuario.token}`;
 
       const mail = {
@@ -103,7 +106,7 @@ exports.postReestablecer = async (req, res) => {
           '" target="_blank">Activar Usuario</a>.<br>',
       };
       await nodemailer.sendMail(mail);
-      res.status(200).json({'Mensaje':'Su correo fue enviado exitosamente'});
+      res.status(200).json({ Mensaje: "Su correo fue enviado exitosamente" });
     }
   } catch (error) {
     res.json(error);
@@ -131,3 +134,22 @@ exports.reestablecercontrasena = async (req, res, next) => {
     res.json(error);
   }
 };
+
+exports.verificarToken = async (req, res, next) => {
+  try {
+    const { token } = req.params;
+    //no busca la contraseña
+    const usuario = await Usuario.findOne({ token }, { password: 0 });
+
+    if (!usuario) {
+      res.status(400).json({ mensaje: "No se encontro un token" });
+    } else {
+      
+      res.status(200).json({'Mensaje':'El token es valido'});
+      
+    }
+  } catch (error) {
+    res.json(error);
+  }
+};
+

@@ -1,0 +1,20 @@
+<form novalidate [formGroup]="loginForm" (ngSubmit)="Submit(loginForm.value)">
+  <input type="email" formControlName="email" />
+
+  <span *ngIf="loginForm.get('email').hasError('email')"
+    >Correo electrónico invalido</span
+  >
+
+  <span *ngIf="loginForm.get('email').hasError('required') && (loginForm.get('email').touched || loginForm.get('email').dirty)"
+    >Correo electrónico requerido</span
+  >
+
+  <input type="password" formControlName="password" />
+
+  <span *ngIf="loginForm.get('password').hasError('required')  && (loginForm.get('password').touched || loginForm.get('password').dirty)"
+    >Contraseña requerida</span
+  >
+
+  <button [disabled]="loginForm.invalid">LOGIN</button>
+  {{ loginForm.errors | json }}
+</form>

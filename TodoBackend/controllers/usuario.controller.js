@@ -87,7 +87,7 @@ exports.postReestablecer = async (req, res) => {
       const nuevoToken = await crypto.randomBytes(20).toString("hex");
       const nuevoUsuario = await Usuario.findByIdAndUpdate(usuario.id, {
         token: nuevoToken, });
-      const Url = `http://localhost:4200/usuario/reestablecer/${nuevoUsuario.token}`;
+      const Url = `http://localhost:4200/reset_password/${nuevoUsuario.token}`;
 
       const mail = {
         from: "ma_valdeza@unicah.edu",

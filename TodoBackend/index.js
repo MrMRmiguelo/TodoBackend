@@ -17,9 +17,6 @@ nodemailer.verify((err, success) => {
   }
 });
 
-
-
-
 const app = express();
 const corsOptions = {
   // origin: "http://localhost:4200",

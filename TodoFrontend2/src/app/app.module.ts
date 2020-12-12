@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Import your library
 import { AlertModule } from '@full-fledged/alerts';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ResetPasswordEmailComponent } from './components/reset-password-email/reset-password-email.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
+    ResetPasswordComponent,
+    ResetPasswordEmailComponent,
   ],
   imports: [
     BrowserModule,

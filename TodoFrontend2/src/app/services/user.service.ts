@@ -9,7 +9,7 @@ import { Usuario } from '../interfaces/usuario';
 })
 export class UserService {
   private endpoint: string;
-
+  // en un futuro el winsow.location.hostnamne cambiaria para produccio
   constructor(private http: HttpClient, private router: Router) {
     this.endpoint = 'http://' + window.location.hostname + ':3000/api';
   }
@@ -23,7 +23,7 @@ export class UserService {
 
   loggedUser(): boolean {
     console.log(!!localStorage.getItem('userToken'));
-    
+
     return !!localStorage.getItem('userToken');
   }
   loggedOut(): void {
@@ -33,5 +33,21 @@ export class UserService {
 
   getToken(): string {
     return localStorage.getItem('userToken');
+  }
+
+  resetPasswordEmail(usuario: Usuario): Observable<any> {
+    return this.http.post<any>(
+      `${this.endpoint}/usuario/reestablecer`,
+      usuario
+    );
+  }
+  verifyToken(token: string): Observable<any> {
+    return this.http.get<any>(`${this.endpoint}/usuario/verificar/${token}`);
+  }
+  resetPassword(usuario: Usuario, token: string): Observable<any> {
+    return this.http.post<any>(
+      `${this.endpoint}/usuario/reestablecer/${token}`,
+      usuario
+    );
   }
 }

@@ -178,9 +178,9 @@ body {
 .contact-form-contra a:hover {
   color: #51bbe9;
 }
-
-input[type="checkbox"] {
-  width: 20%;
+.lit {
+  width: 50px;
+  height: auto;
 }
 
 .card {
@@ -189,3 +189,10 @@ input[type="checkbox"] {
   margin-bottom: 10px;
 }
 
+
+@media (max-width: 768px) {
+  .lit {
+    width: 30px;
+    height: auto;
+  }
+}

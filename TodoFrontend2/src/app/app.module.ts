@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ResetPasswordEmailComponent } from './components/reset-password-email/reset-password-email.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TodoAddComponent } from './components/todo-add/todo-add.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     ResetPasswordComponent,
     ResetPasswordEmailComponent,
     ProfileComponent,
+    TodoAddComponent,
   ],
   imports: [
     BrowserModule,

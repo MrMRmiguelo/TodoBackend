@@ -17,6 +17,7 @@ import { AlertModule } from '@full-fledged/alerts';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ResetPasswordEmailComponent } from './components/reset-password-email/reset-password-email.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ResetPasswordEmailComponent } from './components/reset-password-email/r
     NavbarComponent,
     ResetPasswordComponent,
     ResetPasswordEmailComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

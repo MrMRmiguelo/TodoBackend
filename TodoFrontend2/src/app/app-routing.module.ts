@@ -6,14 +6,15 @@ import { ResetPasswordEmailComponent } from './components/reset-password-email/r
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { GuardGuard } from './guards/guard.guard';
+import { LoginGuardGuard } from './guards/login-guard.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/todo', pathMatch: 'full' },
   // {path: '**',redirectTo:'/todo',pathMatch:'full'},
   { path: 'todo', component: TodoComponent, canActivate: [GuardGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'reset_password', component: ResetPasswordEmailComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuardGuard]  },
+  { path: 'register', component: RegisterComponent, canActivate: [LoginGuardGuard]  },
+  { path: 'reset_password', component: ResetPasswordEmailComponent, canActivate: [LoginGuardGuard]  },
   { path: 'reset_password/:token', component: ResetPasswordComponent },
 ];
 

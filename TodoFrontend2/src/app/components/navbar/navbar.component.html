@@ -1,6 +1,6 @@
 <nav
   class="navbar navbar-expand-lg navbar-dark"
-  style="background-color: #51bbe9; z-index: 1;"
+  style="background-color: #51bbe9; z-index: 1"
   *ngIf="userService.loggedUser()"
 >
   <div class="container-fluid">
@@ -48,7 +48,6 @@
             | Tareas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/">Todas Tareas</a></li>
             <li><a class="dropdown-item" href="/add">Agregar Tarea</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li>
@@ -69,15 +68,22 @@
             | Perfil
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" >Perfil</a></li>
+            <li><a class="dropdown-item">Perfil</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" style="cursor: pointer;" (click)="userService.loggedOut()">Cerrar Sesion</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="cursor: pointer"
+                (click)="userService.loggedOut()"
+                >Cerrar Sesion</a
+              >
+            </li>
           </ul>
         </li>
         <li>
           <a
             class="nav-link disabled"
-            style="color: rgb(61, 61, 61);"
+            style="color: rgb(61, 61, 61)"
             tabindex="-1"
             aria-disabled="true"
             >Hola User</a
@@ -88,10 +94,9 @@
   </div>
 </nav>
 
-
 <nav
   class="navbar navbar-expand-lg navbar-dark"
-  style="background-color: #51bbe9; z-index: 1;"
+  style="background-color: #51bbe9; z-index: 1"
   *ngIf="!userService.loggedUser()"
 >
   <div class="container-fluid">
@@ -128,16 +133,15 @@
           >
         </li>
         <li class="nav-item">
-            <a
-              class="nav-link"
-              aria-current="page"
-              style="color: white"
-              [routerLink]="['/login']"
-              routerLinkActive="active"
-              >| Iniciar Sesión</a
-            >
-          </li>
-
+          <a
+            class="nav-link"
+            aria-current="page"
+            style="color: white"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            >| Iniciar Sesión</a
+          >
+        </li>
       </ul>
     </div>
   </div>

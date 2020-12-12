@@ -10,38 +10,52 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif, "Nerko One", cursive;
 }
 .blur {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .blur:before {
-    content: '';
-    z-index: 0;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("/assets/img/fondo.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    -webkit-filter: blur(6px);
-    -moz-filter: blur(6px);
-    -o-filter: blur(6px);
-    -ms-filter: blur(6px);
-    filter: blur(6px);
+  content: "";
+  z-index: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/assets/img/fondo.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  -ms-filter: blur(6px);
+  filter: blur(6px);
 }
 .contact-form {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 500px;
+  width: 380px;
+  height: 520px;
   padding: 80px 40px;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 25px;
+  margin-top: 5rem;
+}
+.contact-form-contra {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 400px;
+  padding: 40px 40px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 25px;
+  margin-top: 5rem;
 }
 
 .avatar {
@@ -50,14 +64,22 @@ body {
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  top: calc(-80px/2);
+  top: calc(-80px / 2);
   left: calc(50% - 40px);
   padding: 2px;
 }
 
 .contact-form h2 {
   margin: 0;
-  padding: 0 0 20px;
+  padding: 0 0 10px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contact-form-contra h2 {
+  margin: 0;
+  padding: 0 0 10px;
   color: #fff;
   text-align: center;
   text-transform: uppercase;
@@ -68,12 +90,21 @@ body {
   padding: 0;
   color: #fff;
 }
+.contact-form-contra p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
 
 .contact-form input {
   width: 100%;
   margin-bottom: 20px;
 }
 
+.contact-form-contra input {
+  width: 100%;
+  margin-bottom: 10px;
+}
 .contact-form input[type="text"],
 .contact-form input[type="password"] {
   border: none;
@@ -84,8 +115,19 @@ body {
   color: #fff;
   font-size: 16px;
 }
+.contact-form-contra input[type="text"],
+.contact-form-contra input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
 
-.contact-form input[type="submit"] {
+
+/* .contact-form input[type="submit"] {
   height: 30px;
   color: #fff;
   font-size: 15px;
@@ -94,7 +136,30 @@ body {
   border-radius: 25px;
   border: none;
   outline: none;
-  
+} */
+
+.contact-form button[type="boton"] {
+  height: 30px;
+  width: auto;
+  color: #fff;
+  font-size: 15px;
+  background: #51bbe9;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+.contact-form-contra button[type="boton"] {
+  height: 30px;
+  width: auto;
+  color: #fff;
+  font-size: 15px;
+  background: #51bbe9;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  outline: none;
 }
 
 .contact-form a {
@@ -102,7 +167,15 @@ body {
   font-size: 14px;
   text-decoration: none;
 }
-.contact-form a:hover{
+.contact-form-contra a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+.contact-form a:hover {
+  color: #51bbe9;
+}
+.contact-form-contra a:hover {
   color: #51bbe9;
 }
 
@@ -111,8 +184,8 @@ input[type="checkbox"] {
 }
 
 .card {
-  margin: 0 auto; 
+  margin: 0 auto;
   float: none;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 

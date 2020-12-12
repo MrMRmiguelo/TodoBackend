@@ -1,21 +1,106 @@
-<form novalidate [formGroup]="loginForm" (ngSubmit)="Submit(loginForm.value)">
+<!-- <form novalidate [formGroup]="loginForm" (ngSubmit)="Submit(loginForm.value)">
   <input type="email" formControlName="email" />
 
   <span *ngIf="loginForm.get('email').hasError('email')"
     >Correo electrónico invalido</span
   >
 
-  <span *ngIf="loginForm.get('email').hasError('required') && (loginForm.get('email').touched || loginForm.get('email').dirty)"
+  <span
+    *ngIf="
+      loginForm.get('email').hasError('required') &&
+      (loginForm.get('email').touched || loginForm.get('email').dirty)
+    "
     >Correo electrónico requerido</span
   >
 
   <input type="password" formControlName="password" />
 
-  <span *ngIf="loginForm.get('password').hasError('required')  && (loginForm.get('password').touched || loginForm.get('password').dirty)"
+  <span
+    *ngIf="
+      loginForm.get('password').hasError('required') &&
+      (loginForm.get('password').touched || loginForm.get('password').dirty)
+    "
     >Contraseña requerida</span
   >
 
   <button [disabled]="loginForm.invalid">LOGIN</button>
   {{ loginForm.errors | json }}
-</form>
+</form> -->
+<div class="contact-form">
+  <img
+    src="../../../assets/img/2x/avatar2.png"
+    class="avatar"
+    style="background-color: #fff"
+  />
+  <h4
+    style="
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0 0 10px;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+    "
+  >
+    Inicia Sesión
+    <hr style="background: cyan" />
+  </h4>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="Submit(loginForm.value)">
+    <p>Correo</p>
+    <input
+      name="email"
+      type="text"
+      formControlName="email"
+      placeholder="Alguien@correo.com"
+    />
 
+    <div style="border: #21aeeb">
+      <span
+        *ngIf="loginForm.get('email').hasError('email')"
+        style="color: crimson"
+        >Correo electrónico invalido</span
+      >
+      <span
+        *ngIf="
+          loginForm.get('email').hasError('required') &&
+          (loginForm.get('email').touched || loginForm.get('email').dirty)
+        "
+        style="color: crimson"
+        >Correo electrónico requerido</span
+      >
+    </div>
+    <p class="mt-2">Contraseña</p>
+    <input
+      type="password"
+      name="password"
+      formControlName="password"
+      placeholder="Escribe tu contraseña"
+    />
+
+    <div style="border: #21aeeb">
+      <span
+        *ngIf="
+          loginForm.get('password').hasError('required') &&
+          (loginForm.get('password').touched || loginForm.get('password').dirty)
+        "
+        style="color: crimson"
+        >Contraseña requerida</span
+      >
+    </div>
+
+    <div class="text-center">
+      <h2><a [routerLink]="[ '/reset_password']" >Olvidé mi contraseña</a></h2>
+      <h2><a [routerLink]="[ '/register']">¿No tienes cuenta? Registrate ahora </a></h2>
+      <hr style="background: cyan" />
+      <div class="d-grid">
+        <button
+          class="btn btn-block btn-dark"
+          type="boton"
+          [disabled]="loginForm.invalid"
+        >
+          Inicias Sesión
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

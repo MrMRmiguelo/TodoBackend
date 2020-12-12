@@ -1,22 +1,117 @@
-<form novalidate [formGroup]="registerForm" (ngSubmit)="Submit(registerForm.value)">
-    <input type="email" formControlName="email" />
-  
-    <span *ngIf="registerForm.get('email').hasError('email')"
-      >Correo electrónico invalido</span
-    >
-  
-    <span *ngIf="registerForm.get('email').hasError('required') && (registerForm.get('email').touched || registerForm.get('email').dirty)"
-      >Correo electrónico requerido</span
-    >
-  
-    <input type="password" formControlName="password" />
-  
-    <span *ngIf="registerForm.get('password').hasError('required')  && (registerForm.get('password').touched || registerForm.get('password').dirty)"
-      >Contraseña requerida</span
-    >
-  
-    <button [disabled]="registerForm.invalid">REGISTER</button>
-    {{ registerForm.errors | json }}
+<form
+  novalidate
+  [formGroup]="registerForm"
+  (ngSubmit)="Submit(registerForm.value)"
+>
+  <input type="email" formControlName="email" />
+
+  <span *ngIf="registerForm.get('email').hasError('email')"
+    >Correo electrónico invalido</span
+  >
+
+  <span
+    *ngIf="
+      registerForm.get('email').hasError('required') &&
+      (registerForm.get('email').touched || registerForm.get('email').dirty)
+    "
+    >Correo electrónico requerido</span
+  >
+
+  <input type="password" formControlName="password" />
+
+  <span
+    *ngIf="
+      registerForm.get('password').hasError('required') &&
+      (registerForm.get('password').touched ||
+        registerForm.get('password').dirty)
+    "
+    >Contraseña requerida</span
+  >
+
+  <button [disabled]="registerForm.invalid">REGISTER</button>
+  {{ registerForm.errors | json }}
+</form>
+
+<div class="contact-form">
+  <img
+    src="../../../assets/img/2x/sign-up.png"
+    class="avatar"
+    style="background-color: #fff"
+  />
+  <h4
+    style="
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0 0 10px;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+    "
+  >
+    Registrate 😍
+    <hr style="background: cyan" />
+  </h4>
+  <form
+    novalidate
+    [formGroup]="registerForm"
+    (ngSubmit)="Submit(registerForm.value)"
+  >
+    <p>Correo</p>
+    <input
+      name="email"
+      type="text"
+      formControlName="email"
+      placeholder="Alguien@correo.com"
+    />
+
+    <div style="border: #21aeeb">
+      <span
+        *ngIf="registerForm.get('email').hasError('email')"
+        style="color: crimson"
+        >Correo electrónico invalido</span
+      >
+      <span
+        *ngIf="
+          registerForm.get('email').hasError('required') &&
+          (registerForm.get('email').touched || registerForm.get('email').dirty)
+        "
+        style="color: crimson"
+        >Correo electrónico requerido</span
+      >
+    </div>
+    <p class="mt-2">Contraseña</p>
+    <input
+      type="password"
+      name="password"
+      formControlName="password"
+      placeholder="Escribe tu contraseña"
+    />
+
+    <div style="border: #21aeeb">
+      <span
+        *ngIf="
+          registerForm.get('password').hasError('required') &&
+          (registerForm.get('password').touched ||
+            registerForm.get('password').dirty)
+        "
+        style="color: crimson"
+        >Contraseña requerida</span
+      >
+    </div>
+
+    <div class="text-center">
+      <h6  style="margin: 0; padding: 0 0 10px; color: #fff; text-align: center">¿Ya tienes una cuenta?</h6>
+      <h2><a [routerLink]="['/login']">Iniciar Sesión</a></h2>
+      <hr style="background: cyan" />
+      <div class="d-grid">
+        <button
+          class="btn btn-block btn-dark"
+          type="boton"
+          [disabled]="registerForm.invalid"
+        >
+          Registrate
+        </button>
+      </div>
+    </div>
   </form>
-  
-  
+</div>

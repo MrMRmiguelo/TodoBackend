@@ -29,7 +29,7 @@ export class ResetPasswordComponent implements OnInit {
 
   private createForm() {
     this.passwordResetForm = this.formBuilder.group({
-      password: ['', Validators.required],
+      password: ['', [Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,26}$/)]],
     });
   }
   verifyToken() {

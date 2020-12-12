@@ -34,13 +34,14 @@ export class ResetPasswordEmailComponent implements OnInit {
     };
     this.userService.resetPasswordEmail(usuario).subscribe(
       (res) => {
-        this.alertService.success(res.mensaje);
+        console.log(res);
+        
+      this.alertService.success(res.mensaje);
         this.router.navigate(['/login']);
       },
       (err) => {
-        console.log(err);
-
-        this.alertService.danger(err.error.mensaje);
+ 
+       this.alertService.danger(err.error.mensaje || err.statusText);
       }
     );
   }

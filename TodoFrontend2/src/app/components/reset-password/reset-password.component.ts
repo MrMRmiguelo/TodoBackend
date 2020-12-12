@@ -49,13 +49,14 @@ export class ResetPasswordComponent implements OnInit {
     };
     this.userService.resetPassword(usuario, token).subscribe(
       (res) => {
+ 
+        
         this.alertService.success(res.mensaje);
         this.router.navigate(['/login']);
+      
       },
       (err) => {
-        console.log(err);
-
-        this.alertService.danger(err.error.mensaje);
+        this.alertService.danger(err.error.mensaje || err.statusText);
       }
     );
   }

@@ -87,7 +87,7 @@ exports.postReestablecer = async (req, res) => {
       const nuevoToken = await crypto.randomBytes(20).toString("hex");
       const nuevoUsuario = await Usuario.findByIdAndUpdate(usuario.id, {
         token: nuevoToken, });
-      const Url = `http://localhost:4200/reset_password/${nuevoUsuario.token}`;
+      const Url = `http://localhost:4200/reset_password/${nuevoToken}`;
 
       const mail = {
         from: "ma_valdeza@unicah.edu",
@@ -106,7 +106,7 @@ exports.postReestablecer = async (req, res) => {
           '" target="_blank">Activar Usuario</a>.<br>',
       };
       await nodemailer.sendMail(mail);
-      res.status(200).json({ Mensaje: "Su correo fue enviado exitosamente" });
+      res.status(200).json({ mensaje: "Su correo fue enviado exitosamente" });
     }
   } catch (error) {
     res.json(error);
@@ -127,7 +127,7 @@ exports.reestablecercontrasena = async (req, res, next) => {
     } else {
       await Usuario.findByIdAndUpdate( usuario.id , { password: await Usuario.encriptarContraseña(password), token: null });
       
-      res.status(200).json({'Mensaje':'Se ha reestablecido la contraseña exitosamente'});
+      res.status(200).json({mensaje:'Se ha reestablecido la contraseña exitosamente'});
       
     }
   } catch (error) {
@@ -145,7 +145,7 @@ exports.verificarToken = async (req, res, next) => {
       res.status(400).json({ mensaje: "No se encontro un token" });
     } else {
       
-      res.status(200).json({'Mensaje':'El token es valido'});
+      res.status(200).json({mensaje:'El token es valido'});
       
     }
   } catch (error) {

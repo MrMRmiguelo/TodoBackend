@@ -42,10 +42,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/todo']);
       },
       (err) => {
-        // const message = err.error.message;
-
-        this.alertService.danger(err.error.mensaje);
-        // this.toastr.error(`${message}`, 'Alerta');
+        this.alertService.danger(err.error.mensaje || err.statusText);
       }
     );
   }

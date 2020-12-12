@@ -42,9 +42,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/todo']);
       },
       (err) => {
-        console.log(err);
-
-        this.alertService.danger(err.error.mensaje);
+        
+        this.alertService.danger(err.error.mensaje || err.statusText);
       }
     );
   }

@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
       email,
       password: await Usuario.encriptarContraseña(password),
     });
-    const usuarioGuardado = nuevoUsuario.save();
+    const usuarioGuardado = await nuevoUsuario.save();
     const token = jwt.sign(
       {
         _id: usuarioGuardado.id,

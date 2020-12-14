@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
+// Crear el formulario reactivo Formulario reactivo
   private createForm() {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],

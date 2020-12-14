@@ -41,9 +41,11 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
+    
     const usuario = await Usuario.findOne({ email });
-
+    console.log(usuario);
     if (!usuario) {
+      
       res.status(400).json({ mensaje: "No se encontro una cuenta" });
     } else {
       const comparar = await Usuario.compararContraseña(

@@ -64,6 +64,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
             style="color: white"
+            (click)="userService.loggedOut()"
           >
             | Perfil
           </a>
@@ -73,9 +74,11 @@
             <li>
               <a
                 class="dropdown-item"
-                style="cursor: pointer"
+                
                 (click)="userService.loggedOut()"
-                >Cerrar Sesion</a
+                style="cursor: pointer"
+                >
+                Cerrar Sesion</a
               >
             </li>
           </ul>

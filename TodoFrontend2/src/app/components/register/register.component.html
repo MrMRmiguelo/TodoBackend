@@ -32,12 +32,22 @@
   {{ registerForm.errors | json }}
 </form>
 
-<div class="contact-form">
-  <img
-    src="../../../assets/img/2x/sign-up.png"
-    class="avatar"
-    style="background-color: #fff"
-  />
+<div
+  class="contact-form"
+  style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+  height: 520px;
+    padding: 40px 40px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 25px;
+    margin-top: 5rem;
+  "
+>
   <h4
     style="
       margin-top: 0;
@@ -97,11 +107,22 @@
         style="color: crimson"
         >Contraseña requerida</span
       >
+      <span
+        *ngIf="
+          registerForm.get('password').hasError('pattern') &&
+          registerForm.get('password').dirty
+        "
+        style="color: rgb(233, 194, 22);font-size: smaller;"
+        >La contraseña debe tener al menos entre 6 y 26 caracteres, al menos un
+          dígito, al menos una minúscula y al menos una mayúscula.</span
+      >
     </div>
 
     <div class="text-center">
-      <h6  style="margin: 0; padding: 0 0 10px; color: #fff; text-align: center">¿Ya tienes una cuenta?</h6>
-      <h2><a [routerLink]="['/login']">Iniciar Sesión</a></h2>
+      <h6 style="margin: 0; padding: 0 0 10px; color: #fff; text-align: center">
+        ¿Ya tienes una cuenta?
+      </h6>
+      <h2 class=""><a class="mt-0" [routerLink]="['/login']">Iniciar Sesión</a></h2>
       <hr style="background: cyan" />
       <div class="d-grid">
         <button

@@ -23,6 +23,7 @@
     "@popperjs/core": "^2.5.4",
     "bootstrap": "^5.0.0-beta1",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^10.12.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

@@ -25,6 +25,8 @@ export class UserService {
     return !!localStorage.getItem('userToken');
   }
   loggedOut(): void {
+    console.log('GUAARGUAR');
+    
     localStorage.removeItem('userToken');
     this.router.navigate(['/login']);
   }

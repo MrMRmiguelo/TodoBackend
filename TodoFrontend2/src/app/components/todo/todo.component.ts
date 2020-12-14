@@ -46,4 +46,20 @@ export class TodoComponent implements OnInit {
       }
     );
   }
+
+  eliminarTarea(form:Todo) {
+    const todo: Todo = {
+      tarea: form.tarea,
+      detalleTarea: form.detalleTarea,
+    };
+    this.todoSevice.eliminarUnaTarea(form).subscribe(
+      (res) => {
+        this.alertService.success(res.mensaje);
+        this.router.navigate(['/todo']);
+      },
+      (err) => {
+        this.alertService.danger(err.error.mensaje || err.statusText);
+      }
+    );
+  }
 }

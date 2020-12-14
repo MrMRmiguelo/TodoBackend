@@ -65,7 +65,7 @@ exports.editarListado = async (req, res) => {
     if (!listado) {
       res.status(400).json({ mensaje: "No se encontro una lista con ese Id" });
     } else {
-      res.status(200).json({ Respuesta: "Lista editada" });
+      res.status(200).json({ mensaje: "Lista editada" });
     }
   } catch (error) {
     res.status(400).json({ mensaje: "Error en editar la tarea" });

@@ -1,20 +1,24 @@
 <div class="container p-0">
   <div class="row mt-5">
     <div style="z-index: 1">
-      <a class="btn btn-primary ms-2" role="button" style="color: #ffff" [routerLink]="[ '/add']">
+      <a
+        class="btn btn-primary ms-2"
+        role="button"
+        style="color: #ffff"
+        [routerLink]="['/add']"
+      >
         <i class="fas fa-plus"></i>
       </a>
     </div>
     <!-- Inicio de card -->
-    <h2 style="z-index: 1; color: #FFF;">En Progreso</h2>
+    <h2 style="z-index: 1; color: #fff">En Progreso</h2>
     <hr style="background: cyan" />
     <div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let lista of listas">
       <div class="card" *ngIf="!lista.completado">
         <div class="card-header px-4 pt-4">
-         
           <div class="input-group">
             <div class="input-group-text me-2">
-              <h5 class="card-title mb-0">{{lista.tarea}}</h5>
+              <h5 class="card-title mb-0">{{ lista.tarea }}</h5>
             </div>
             <input
               class="form-check-input mt-0 lit"
@@ -24,12 +28,11 @@
               [checked]="lista.completado"
               (click)="cambiarEstado(lista._id)"
             />
-
           </div>
         </div>
         <div class="card-body px-4 pt-2">
           <p>
-            {{lista.detalleTarea}}
+            {{ lista.detalleTarea }}
           </p>
         </div>
         <ul class="list-group list-group-flush">
@@ -37,7 +40,7 @@
             <a
               class="btn"
               style="background-color: #51bbe9; color: #ffff"
-              href=""
+              [routerLink]="['/edit/' + lista._id]"
             >
               <i class="fas fa-edit"></i> Editar
             </a>
@@ -50,15 +53,14 @@
       </div>
     </div>
     <!-- Inicio de card -->
-    <h2  class="mt-4" style="z-index: 1; color: #FFF;">Completado</h2>
+    <h2 class="mt-4" style="z-index: 1; color: #fff">Completado</h2>
     <hr style="background: cyan" />
     <div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let lista of listas">
       <div class="card" *ngIf="lista.completado">
         <div class="card-header px-4 pt-4">
-
           <div class="input-group">
             <div class="input-group-text me-2">
-              <h5 class="card-title mb-0">{{lista.tarea}}</h5>
+              <h5 class="card-title mb-0">{{ lista.tarea }}</h5>
             </div>
             <input
               class="form-check-input mt-0 lit"
@@ -72,7 +74,7 @@
         </div>
         <div class="card-body px-4 pt-2">
           <p>
-            {{lista.detalleTarea}}
+            {{ lista.detalleTarea }}
           </p>
         </div>
         <ul class="list-group list-group-flush">
@@ -80,7 +82,7 @@
             <a
               class="btn"
               style="background-color: #51bbe9; color: #ffff"
-              href=""
+              [routerLink]="['/edit/' + lista._id]"
             >
               <i class="fas fa-edit"></i> Editar
             </a>
@@ -95,7 +97,10 @@
   </div>
 </div>
 
-<a [routerLink]="['/add']" class="float border border-5 border-primary rounded-circle" style="z-index: 1;">
+<a
+  [routerLink]="['/add']"
+  class="float border border-5 border-primary rounded-circle"
+  style="z-index: 1"
+>
   <i class="fa fa-plus my-float"></i>
 </a>
-

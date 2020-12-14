@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EditarListaComponent } from './components/editar-lista/editar-lista.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   
   { path: 'todo', component: TodoComponent, canActivate: [GuardGuard] },
   { path: 'add', component: TodoAddComponent, canActivate: [GuardGuard] },
+  { path: 'edit/:id', component: EditarListaComponent, canActivate: [GuardGuard] },
   { path: 'login', component: LoginComponent, canActivate: [LoginGuardGuard]  },
   { path: 'register', component: RegisterComponent, canActivate: [LoginGuardGuard]  },
   { path: 'reset_password', component: ResetPasswordEmailComponent, canActivate: [LoginGuardGuard]  },

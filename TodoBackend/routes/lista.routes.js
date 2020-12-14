@@ -14,5 +14,5 @@ router.get('/',middleware.verificarJwt, lista.tareas);
 router.post('/crear_lista',middleware.verificarJwt, lista.crearListado);
 router.put('/editar_lista/:idTarea', middleware.verificarJwt, lista.editarListado);
 router.delete('/eliminar_lista/:idTarea',middleware.verificarJwt,lista.eliminarLista);
-
+router.put('/actualizar_estado/:idTarea',middleware.verificarJwt,lista.actualizarEstado);
 module.exports = router;

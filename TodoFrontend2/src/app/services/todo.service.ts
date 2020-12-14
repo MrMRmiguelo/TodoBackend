@@ -18,6 +18,21 @@ export class TodoService {
   obtenerTareas(): Observable<any> {
     return this.http.get<any>(`${this.endpoint}/`);
   }
+  obtenerUnaTarea(id:string):Observable<any>{
+    return this.http.get<any>(`${this.endpoint}/${id}`)
+  }
+  agregarUnaTarea(todo:Todo):Observable<any>{
+    return this.http.post<any>(`${this.endpoint}/crear_lista`,todo)
+  }
+  eliminarUnaTarea(todo:Todo):Observable<any>{
+    return this.http.delete<any>(`${this.endpoint}/eliminar_lista/${todo._id}`) 
+  }
+  actualizarUnaTarea(todo:Todo,id:string):Observable<any>{
+    return this.http.put<any>(`${this.endpoint}/editar_lista/${id}`,todo)
+  }
+  actualizarEstado(todo:Todo):Observable<any>{
+    return this.http.put<any>(`${this.endpoint}/actualizar_estado/${todo._id}`,[])
+  }
 
   
 }

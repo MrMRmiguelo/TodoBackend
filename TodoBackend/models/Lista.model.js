@@ -14,12 +14,17 @@ var listaSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    completado:{
+        type:Boolean,
+        required:false,
+        default: false,
+    },
     usuario:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref:"Usuario",
     },
-   
+       
     
 });
 

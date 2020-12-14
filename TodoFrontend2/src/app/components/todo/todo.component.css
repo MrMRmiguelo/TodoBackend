@@ -1,0 +1,21 @@
+.float:hover {
+  width: 65px;
+  height: 65px;
+  background-color: #51bbe9;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+  .float {
+    background-color: #51bbe9;
+    color: #fff;
+    transition: all 0.3s ease;
+
+    text-align: center;
+  }
+}
+
+.my-float {
+  margin-top: 35%;
+  border-color: #51bbe9;
+}

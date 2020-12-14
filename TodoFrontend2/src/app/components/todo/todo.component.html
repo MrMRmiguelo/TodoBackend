@@ -1,18 +1,18 @@
 <div class="container p-0">
   <div class="row mt-5">
     <div style="z-index: 1">
-      <a class="btn btn-primary" role="button" style="color: #ffff" [routerLink]="[ '/add']">
+      <a class="btn btn-primary ms-2" role="button" style="color: #ffff" [routerLink]="[ '/add']">
         <i class="fas fa-plus"></i>
       </a>
     </div>
     <!-- Inicio de card -->
-    <div class="col-12 col-md-6 col-lg-3 mt-2">
+    <div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let lista of listas">
       <div class="card">
         <div class="card-header px-4 pt-4">
           <div class="card-actions float-right"></div>
           <div class="input-group">
             <div class="input-group-text me-2">
-              <h5 class="card-title mb-0">Ir al Super</h5>
+              <h5 class="card-title mb-0">{{lista.tarea}}</h5>
             </div>
             <input
               class="form-check-input mt-0 lit"
@@ -24,8 +24,7 @@
         </div>
         <div class="card-body px-4 pt-2">
           <p>
-            Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
-            quam semper libero, sit amet adipiscing sem neque sed ipsum.
+            {{lista.detalleTarea}}
           </p>
         </div>
         <ul class="list-group list-group-flush">
@@ -49,3 +48,7 @@
 
   </div>
 </div>
+<a [routerLink]="['/add']" class="float border border-5 border-primary rounded-circle" style="z-index: 1;">
+  <i class="fa fa-plus my-float"></i>
+</a>
+

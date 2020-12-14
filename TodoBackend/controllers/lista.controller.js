@@ -47,7 +47,7 @@ exports.crearListado = async (req, res) => {
     if (!nuevoListado) {
       res.status(400).json({ mensaje: "Error al guardar la tarea" });
     } else {
-      res.status(200).json(nuevoListado);
+      res.status(200).json({mensaje: "Agregado correctamente"});
     }
   } catch (error) {
     res.status(400).json({ mensaje: "Error en conexion guardar tarea" });

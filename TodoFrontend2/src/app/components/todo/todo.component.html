@@ -6,8 +6,10 @@
       </a>
     </div>
     <!-- Inicio de card -->
+    <h2 style="z-index: 1; color: #FFF;">En Progreso</h2>
+    <hr style="background: cyan" />
     <div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let lista of listas">
-      <div class="card">
+      <div class="card" *ngIf="!lista.completado">
         <div class="card-header px-4 pt-4">
           <div class="card-actions float-right"></div>
           <div class="input-group">
@@ -45,10 +47,47 @@
       </div>
     </div>
     <!-- Inicio de card -->
+    <h2  class="mt-4" style="z-index: 1; color: #FFF;">Completado</h2>
+    <hr style="background: cyan" />
+    <div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let lista of listas">
+      <div class="card" *ngIf="lista.completado">
+        <div class="card-header px-4 pt-4">
+          <div class="card-actions float-right"></div>
+          <div class="input-group">
+            <div class="input-group-text me-2">
+              <h5 class="card-title mb-0">{{lista.tarea}}</h5>
+            </div>
+            <input
+              class="form-check-input mt-0 lit"
+              type="checkbox"
+              value=""
+              aria-label="Checkbox for following text input"
+            />
+          </div>
+        </div>
+        <div class="card-body px-4 pt-2">
+          <p>
+            {{lista.detalleTarea}}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item px-4 pb-4">
+            <a
+              class="btn"
+              style="background-color: #51bbe9; color: #ffff"
+              href=""
+            >
+              <i class="fas fa-edit"></i> Editar
+            </a>
 
+            <button name="eliminar_producto" class="m-1 btn btn-danger">
+              <i class="fa fa-trash" aria-hidden="true"></i> Borrar
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
-<a [routerLink]="['/add']" class="float border border-5 border-primary rounded-circle" style="z-index: 1;">
-  <i class="fa fa-plus my-float"`></i>
-</a>
+
 

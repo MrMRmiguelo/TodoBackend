@@ -38,49 +38,64 @@
     </div>
   </div>
 </div> -->
-
-<div class="container p-0">
-  <div class="row mt-5">
-    <!-- Inicio de card -->
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card">
-        <div class="card-header px-4 pt-4">
-          <!-- <div class="card-actions float-right"></div> -->
-          <h5 class="card-title mb-0">Agregar Tarea</h5>
-        </div>
-        <div class="card-body px-4 pt-2">
-          <input
-            type="text"
-            class="form-control text-center"
-            placeholder="Titulo de Tarea"
-            aria-label="Titulo"
-            aria-describedby="button-addon2"
-          />
-        </div>
-        <div class="card-body px-4 pt-2">
-          <textarea
-            class="mt-2 form-control"
-            placeholder="Descripción"
-            aria-label="Description"
-            style="height: 18em"
-          ></textarea>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item px-4 pb-4">
-            <a
-              class="btn"
-              style="background-color: #51bbe9; color: #ffff"
-              href=""
+<form novalidate [formGroup]="addForm" (ngSubmit)="Submit(addForm.value)">
+  <div class="container p-0">
+    <div class="row mt-5">
+      <!-- Inicio de card -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card">
+          <div class="card-header px-4 pt-4">
+            <!-- <div class="card-actions float-right"></div> -->
+            <h5 class="card-title mb-0 text-center">Agregar Tarea</h5>
+          </div>
+          <div class="card-body px-4 pt-2">
+            <input
+              type="text"
+              class="form-control text-center"
+              formControlName="tarea"
+              placeholder="Titulo de Tarea"
+              aria-describedby="button-addon2"
+            />
+            <span
+              *ngIf="
+                addForm.get('tarea').hasError('required') &&
+                (addForm.get('tarea').touched || addForm.get('tarea').dirty)
+              "
+              style="color: crimson"
+              >Necesario</span
             >
-              <i class="fas fa-edit"></i> Editar
-            </a>
-
-            <button name="eliminar_producto" class="m-1 btn btn-danger">
-              <i class="fa fa-trash" aria-hidden="true"></i> Borrar
-            </button>
-          </li>
-        </ul>
+          </div>
+          <div class="card-body px-4 pt-2">
+            <textarea
+              class="mt-2 form-control"
+              formControlName="detalleTarea"
+              placeholder="Descripción"
+              aria-label="Description"
+              style="height: 18em"
+            ></textarea>
+            <span
+              *ngIf="
+                addForm.get('detalleTarea').hasError('required') &&
+                (addForm.get('detalleTarea').touched ||
+                  addForm.get('detalleTarea').dirty)
+              "
+              style="color: crimson"
+              >Necesario</span
+            >
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item px-4 pb-4 text-center">
+              <button
+                class="m-1 btn"
+                [disabled]="addForm.invalid"
+                style="background-color: #51bbe9; color: #ffff"
+              >
+                <i class="fas fa-edit"></i> Guardar
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>

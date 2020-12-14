@@ -10,7 +10,7 @@ import { TodoService } from 'src/app/services/todo.service';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
-  listas:Todo[];
+  listas: Todo[];
   constructor(
     private todoSevice: TodoService,
     private router: Router,
@@ -23,9 +23,11 @@ export class TodoComponent implements OnInit {
   listTasks() {
     this.todoSevice.obtenerTareas().subscribe(
       (res) => {
+        console.log(res);
+
         this.listas = res;
         console.log(this.listas);
-        
+
         // this.router.navigate(['/']);
       },
       (err) => {

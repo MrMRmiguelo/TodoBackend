@@ -30,8 +30,8 @@ export class TodoService {
   actualizarUnaTarea(todo:Todo,id:string):Observable<any>{
     return this.http.put<any>(`${this.endpoint}/editar_lista/${id}`,todo)
   }
-  actualizarEstado(todo:Todo):Observable<any>{
-    return this.http.put<any>(`${this.endpoint}/actualizar_estado/${todo._id}`,[])
+  actualizarEstado(id:string):Observable<any>{
+    return this.http.put<any>(`${this.endpoint}/actualizar_estado/${id}`,{})
   }
 
   

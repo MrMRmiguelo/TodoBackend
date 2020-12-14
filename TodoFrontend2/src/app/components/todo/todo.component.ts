@@ -35,4 +35,15 @@ export class TodoComponent implements OnInit {
       }
     );
   }
+  cambiarEstado(id: string) {
+    this.todoSevice.actualizarEstado(id).subscribe(
+      (res) => {
+        this.alertService.success(res.mensaje);
+        this.listTasks();
+      },
+      (err) => {
+        this.alertService.danger(err.error.mensaje || err.statusText);
+      }
+    );
+  }
 }

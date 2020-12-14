@@ -65,7 +65,7 @@ exports.editarListado = async (req, res) => {
     if (!listado) {
       res.status(400).json({ mensaje: "No se encontro una lista con ese Id" });
     } else {
-      res.status(200).json({ mensaje: "Lista editada" });
+      res.status(200).json({ mensaje: "Tarea editada" });
     }
   } catch (error) {
     res.status(400).json({ mensaje: "Error en editar la tarea" });
@@ -80,7 +80,7 @@ exports.eliminarLista = async (req, res) => {
     if (!listaBorrar) {
       res.status(400).json({ mensaje: "No se encontro la tarea" });
     } else {
-      res.status(200).json({ Respuesta: "Lista eliminada" });
+      res.status(200).json({ mensaje: "Tarea eliminada" });
     }
   } catch (error) {
     res.status(400).json({ mensaje: "Error en encontrar eliminar la tarea" });

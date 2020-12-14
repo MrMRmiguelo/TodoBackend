@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertService } from '@full-fledged/alerts';
 import { Todo } from 'src/app/interfaces/todo';
 import { TodoService } from 'src/app/services/todo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-todo',
@@ -23,8 +24,6 @@ export class TodoComponent implements OnInit {
   listTasks() {
     this.todoSevice.obtenerTareas().subscribe(
       (res) => {
-        console.log(res);
-
         this.listas = res;
         console.log(this.listas);
 
@@ -47,19 +46,30 @@ export class TodoComponent implements OnInit {
     );
   }
 
-  eliminarTarea(form:Todo) {
-    const todo: Todo = {
-      tarea: form.tarea,
-      detalleTarea: form.detalleTarea,
-    };
-    this.todoSevice.eliminarUnaTarea(form).subscribe(
-      (res) => {
-        this.alertService.success(res.mensaje);
-        this.router.navigate(['/todo']);
-      },
-      (err) => {
-        this.alertService.danger(err.error.mensaje || err.statusText);
+  eliminarTarea(form: Todo) {
+    Swal.fire({
+      title: 'Eliminar tarea',
+      text: '¿Quieres eliminar la tarea?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#51bbe9',
+      cancelButtonColor: '#dc3545',
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.todoSevice.eliminarUnaTarea(form).subscribe(
+          (res) => {
+            this.alertService.success(res.mensaje);
+            this.listTasks();
+          },
+          (err) => {
+            this.alertService.danger(err.error.mensaje || err.statusText);
+          }
+        );
+      } else {
+        this.listTasks();
       }
-    );
+    });
   }
 }
